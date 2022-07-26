@@ -10,7 +10,7 @@ import ListItemText from '@mui/material/ListItemText';
 
 function App() {
   const [users, setUsers] = useState([
-    {id: 1, name: "Bruh"},
+    {id: 1, name: "Bruhh"},
     {id:2, name: "Birô"}
   ]);
   useEffect(() => {
