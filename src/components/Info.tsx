@@ -7,6 +7,8 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import InboxIcon from '@mui/icons-material/Inbox';
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -38,6 +40,9 @@ export default function Info() {
           <List>
             <ListItem disablePadding>
               <ListItemButton>
+                <ListItemIcon>
+                  <Button>  <InboxIcon /> </Button>
+                </ListItemIcon>
                 <ListItemText primary="TOP DAS GALINHAS" />
               </ListItemButton>
             </ListItem>
