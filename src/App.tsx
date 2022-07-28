@@ -19,12 +19,11 @@ function App() {
 			.then((json) => {setUsers(json)});
 	});
   return (
-    <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+    <Box sx={{ width: '100%', maxWidth: 720, bgcolor: 'background.paper' }}>
     <nav aria-label="main mailbox folders">
     <img src="https://i.pinimg.com/originals/80/a1/b4/80a1b4ea8681264dfc843b51c94e79db.jpg" alt=""/>
     <List>
     {users.map((user) => (
-      
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemText primary={user.name} />
