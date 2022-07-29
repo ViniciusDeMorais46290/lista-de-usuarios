@@ -22,6 +22,7 @@ function App() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [id, setId] = React.useState(0);
 
   useEffect(() => {
 		fetch("https://jsonplaceholder.typicode.com/users/")
@@ -34,12 +35,12 @@ function App() {
     <img src="https://i.pinimg.com/originals/80/a1/b4/80a1b4ea8681264dfc843b51c94e79db.jpg" alt=""/>
     <Button onClick={handleOpen}>Open modal</Button>
     <Info open={open} handleClose={handleClose}>
-    <Tarefas></Tarefas>
+    <Tarefas id={1}></Tarefas>
     </Info>
     <List>
     {users.map((user) => (
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton >
             <ListItemText primary={user.name} />
           </ListItemButton>
         </ListItem>

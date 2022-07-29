@@ -5,13 +5,13 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 
 export default function Tarefas(props: any){
-    
+    // https://jsonplaceholder.typicode.com/users/ID_DO_USUARIO/posts
     const [users, setUsers] = useState([
-        {id: 1, name: "Bruhh"},
-        {id:2, name: "Birô"}
+        {id: 1, title: "Bruhh"},
+        {id:2, title: "Birô"}
         ]);
     useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/users/")
+        fetch("https://jsonplaceholder.typicode.com/users/1/todos")
             .then((response) => response.json())
             .then((json) => {setUsers(json)});
     });
@@ -20,7 +20,7 @@ export default function Tarefas(props: any){
     {users.map((user) => (
         <ListItem disablePadding>
           <ListItemButton>
-            <ListItemText primary={user.name} />
+            <ListItemText primary={user.title} />
           </ListItemButton>
         </ListItem>
     ))}
