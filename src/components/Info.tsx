@@ -22,53 +22,21 @@ const style = {
   p: 4,
 };
 
-export default function Info() {
+export default function Info(props: any) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
-    <div>
-      <Button onClick={handleOpen}>Open modal</Button>
       <Modal
-        open={open}
-        onClose={handleClose}
+        open={props.open}
+        onClose={props.handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <List>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <Button>  <InboxIcon /> </Button>
-                </ListItemIcon>
-                <ListItemText primary="TOP DAS GALINHAS" />
-              </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemText primary="TOP DAS GALINHAS" />
-              </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemText primary="TOP DAS GALINHAS" />
-              </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemText primary="TOP DAS GALINHAS" />
-              </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemText primary="TOP DAS GALINHAS" />
-              </ListItemButton>
-            </ListItem>
-          </List>
+          {props.children}
         </Box>
       </Modal>
-    </div>
   );
 }

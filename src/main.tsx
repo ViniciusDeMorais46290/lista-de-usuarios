@@ -6,6 +6,6 @@ import Info from './components/Info'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <Info />
+    <App />
   </React.StrictMode>
 )
