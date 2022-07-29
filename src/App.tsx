@@ -9,6 +9,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Button from '@mui/material/Button';
 import Info from './components/Info';
+import Tarefas from './components/Tarefas';
 
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
     <img src="https://i.pinimg.com/originals/80/a1/b4/80a1b4ea8681264dfc843b51c94e79db.jpg" alt=""/>
     <Button onClick={handleOpen}>Open modal</Button>
     <Info open={open} handleClose={handleClose}>
-    {/* Bota aqui o conteudo do modal Exemplo: add react component */}
+    <Tarefas></Tarefas>
     </Info>
     <List>
     {users.map((user) => (
