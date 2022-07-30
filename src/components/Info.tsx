@@ -25,10 +25,6 @@ const style = {
 };
 
 export default function Info(props: any) {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
   return (
       <Modal
         open={props.open}

@@ -18,11 +18,14 @@ function App() {
     {id: 1, name: "Bruhh"},
     {id:2, name: "Birô"}
   ]);
-
+  const [id, setId] = React.useState(1);
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
+  function handleOpen(a?: any){
+    setOpen(true);
+    setId(a);
+  }
   const handleClose = () => setOpen(false);
-  const [id, setId] = React.useState(0);
+  
 
   useEffect(() => {
 		fetch("https://jsonplaceholder.typicode.com/users/")
@@ -33,16 +36,17 @@ function App() {
     <Box sx={{ width: '100%', maxWidth: 720, bgcolor: 'background.paper' }}>
     <nav aria-label="main mailbox folders">
     <img src="https://i.pinimg.com/originals/80/a1/b4/80a1b4ea8681264dfc843b51c94e79db.jpg" alt=""/>
-    <Button onClick={handleOpen}>Open modal</Button>
+    
+
     <Info open={open} handleClose={handleClose}>
-    <Tarefas id={1}></Tarefas>
+    <Tarefas id={id}></Tarefas>
     </Info>
+    
     <List>
     {users.map((user) => (
-        <ListItem disablePadding>
-          <ListItemButton >
-            <ListItemText primary={user.name} />
-          </ListItemButton>
+        <ListItem key={user.id} disablePadding>
+          <Button onClick={() => {handleOpen(user.id)}}>Ver tarefias</Button>
+          <ListItemText primary={user.name} />
         </ListItem>
     ))}
     </List>
