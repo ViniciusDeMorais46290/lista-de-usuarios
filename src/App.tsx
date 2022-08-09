@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Outlet, Link } from "react-router-dom";
 import reactLogo from './assets/react.svg'
 import './App.css'
 import * as React from 'react';
@@ -45,13 +46,14 @@ function App() {
     <List>
     {users.map((user) => (
         <ListItem key={user.id} disablePadding>
-          <Button onClick={() => {handleOpen(user.id)}}>Ver tarefias</Button>
+          <Button onClick={() => {handleOpen(user.id)}}><Link to="/tarefas">Ver tarefias</Link></Button>
           <ListItemText primary={user.name} />
         </ListItem>
     ))}
     </List>
     </nav>
     <img src="https://spongebob.fandom.com/wiki/The_Two_Faces_of_Squidward" alt=""/>
+    <Outlet/>
   </Box>
   )
 }

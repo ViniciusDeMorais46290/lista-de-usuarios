@@ -12,20 +12,20 @@ export default function Tarefas(props: any){
         {id:2, title: "Birô"}
         ]);
     useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/users/" + props.id + "/todos")
+        fetch("https://jsonplaceholder.typicode.com/users/" + "3" + "/todos")
             .then((response) => response.json())
             .then((json) => {setTasks(json)});
     });
     return(
-      <List>
-      {tasks.map((task) => (
-          <ListItem key={task.id} disablePadding>
+        <List>
+        {tasks.map((task) => (
+            <ListItem key={task.id} disablePadding>
             <ListItemButton>
-              <ListItemText primary={task.title} />
+                <ListItemText primary={task.title} />
             </ListItemButton>
-          </ListItem>
-      ))}
-      </List>
+            </ListItem>
+        ))}
+        </List>
     );
 }
 
