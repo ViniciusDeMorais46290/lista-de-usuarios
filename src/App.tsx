@@ -46,7 +46,7 @@ function App() {
     <List>
     {users.map((user) => (
         <ListItem key={user.id} disablePadding>
-          <Button onClick={() => {handleOpen(user.id)}}><Link to="/tarefas">Ver tarefias</Link></Button>
+          <Button onClick={() => {handleOpen(user.id)}}><Link to={"/tarefas/" + user.id}>Ver tarefias</Link></Button>
           <ListItemText primary={user.name} />
         </ListItem>
     ))}
