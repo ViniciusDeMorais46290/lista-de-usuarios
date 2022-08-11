@@ -40,7 +40,6 @@ function App() {
     ))}
     </List>
     </nav>
-    <img src="https://spongebob.fandom.com/wiki/The_Two_Faces_of_Squidward" alt=""/>
     <Outlet/>
   </Box>
   )
