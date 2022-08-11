@@ -18,13 +18,6 @@ function App() {
     {id: 1, name: "Bruhh"},
     {id:2, name: "Birô"}
   ]);
-  const [id, setId] = React.useState(1);
-  const [open, setOpen] = React.useState(false);
-  function handleOpen(a?: any){
-    setOpen(true);
-    setId(a);
-  }
-  const handleClose = () => setOpen(false);
   
 
   useEffect(() => {
@@ -42,6 +35,7 @@ function App() {
         <ListItem key={user.id} disablePadding>
           <ListItemText primary={user.name} />
           <Button endIcon={<TaskAltIcon/>}component={Link} to={"/tarefas/" + user.id}>Ver tarefas</Button>
+          <Button endIcon={<TaskAltIcon/>}component={Link} to={"/posts/" + user.id}>Ver posts</Button>
         </ListItem>
     ))}
     </List>
