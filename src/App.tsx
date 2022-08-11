@@ -10,8 +10,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Button from '@mui/material/Button';
 import Info from './components/Info';
-import Tarefas from './components/Tarefas';
-
+import TaskAltIcon from '@mui/icons-material/TaskAlt';
 
 function App() {
 
@@ -38,16 +37,11 @@ function App() {
     <nav aria-label="main mailbox folders">
     <img src="https://i.pinimg.com/originals/80/a1/b4/80a1b4ea8681264dfc843b51c94e79db.jpg" alt=""/>
     
-
-    <Info open={open} handleClose={handleClose}>
-    <Tarefas id={id}></Tarefas>
-    </Info>
-    
     <List>
     {users.map((user) => (
         <ListItem key={user.id} disablePadding>
-          <Button onClick={() => {handleOpen(user.id)}}><Link to={"/tarefas/" + user.id}>Ver tarefias</Link></Button>
           <ListItemText primary={user.name} />
+          <Button endIcon={<TaskAltIcon/>}component={Link} to={"/tarefas/" + user.id}>Ver tarefas</Button>
         </ListItem>
     ))}
     </List>
