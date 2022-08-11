@@ -11,6 +11,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Button from '@mui/material/Button';
 import Info from './components/Info';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
+import Comentarios from './components/Comentarios';
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
     </List>
     </nav>
     <Outlet/>
+    <Comentarios name="nome" body="PAo" email="iami"/>
   </Box>
   )
 }

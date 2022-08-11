@@ -17,6 +17,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import Comentarios from "../components/Comentarios";
 
 export default function Tarefas(props: any){
     // https://jsonplaceholder.typicode.com/users/ID_DO_USUARIO/posts
@@ -24,13 +25,24 @@ export default function Tarefas(props: any){
     const [posts, setPosts] = useState([
         {id: 1, title: "Bruhh", body: "Aloha"}
         ]);
+    const [coments, setComents] = useState([
+      {name: "ee", email: "aa", body: "bode"}
+      ]);
 
     useEffect(() => {
         fetch("https://jsonplaceholder.typicode.com/users/" + params.postId + "/posts")
             .then((response) => response.json())
             .then((json) => {setPosts(json)});
     });
-    
+
+    useEffect(() => {
+      fetch("https://jsonplaceholder.typicode.com/users/" + params.postId + "/comments")
+          .then((response) => response.json())
+          .then((json) => {setPosts(coments)});
+  });
+
+  // AQUI EU PRECISO PEGAR O ID DOS POSTS QUE VEM DENTRO DO PRIMEIRO USEFFECT, AI DEPOIS DESSA LOROTA EU TENHO QUE SABER QUAL POST TO ACESSANDO PARA PUXAR OS COMENTARIOS PELO ID DO POST REAL, O PRIMEIRO PARAMS.POSTID DEVERIA SER NA VDD USER.ID {TROCAR EM TASK TBM}
+
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -48,7 +60,7 @@ export default function Tarefas(props: any){
                 <CardMedia
                   component="img"
                   height="140"
-                  image="https://i.pinimg.com/originals/80/a1/b4/80a1b4ea8681264dfc843b51c94e79db.jpg"
+                  image="https://i.pinimg.com/564x/bb/d5/e4/bbd5e430edf7ebe318e38a03b3f6b7c1.jpg"
                   alt="green iguana"
                 />
                 <CardContent>
@@ -65,10 +77,13 @@ export default function Tarefas(props: any){
             {"Comentários"}
           </DialogTitle>
           <DialogContent>
-            <DialogContentText>
-              Let Google help apps determine location. This means sending anonymous
-              location data to Google, even when no apps are running.
-            </DialogContentText>
+            <DialogContent dividers>
+              <List>
+                {coments.map((coment) => (
+                  <Comentarios name={coment.name} email={coment.email} body={coment.body} ></Comentarios>
+                ))}
+              </List>
+            </DialogContent>
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose} autoFocus> Fechar </Button>
