@@ -19,12 +19,12 @@ function App() {
     {id:2, name: "Birô"}
   ]);
   
-
   useEffect(() => {
 		fetch("https://jsonplaceholder.typicode.com/users/")
 			.then((response) => response.json())
 			.then((json) => {setUsers(json)});
 	});
+
   return (
     <Box sx={{ width: '100%', maxWidth: 720, bgcolor: 'background.paper' }}>
     <nav aria-label="main mailbox folders">

@@ -12,7 +12,7 @@ export default function Tarefas(props: any){
     // https://jsonplaceholder.typicode.com/users/ID_DO_USUARIO/posts
     let params = useParams();
     const [tasks, setTasks] = useState([
-        {id: 1, title: "Bruhh", completed: "true"}
+        {id: 1, title: "Bruhh", completed: "True"}
         ]);
     useEffect(() => {
         fetch("https://jsonplaceholder.typicode.com/users/" + params.tarefaId + "/todos")
